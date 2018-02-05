@@ -13,7 +13,7 @@ module Logging
       def logging_validation_errors
         return if errors.messages.blank?
         error_messages = errors.messages.map { |k, v|
-          [k, self.class.human_attribute_name(k) + v.first]
+          [k, "#{self.class.human_attribute_name(k)}#{v.first}"]
         }.to_h
         dump_validation_errors(error_messages)
       end
